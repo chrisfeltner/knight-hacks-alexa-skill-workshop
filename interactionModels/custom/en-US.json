@@ -1,0 +1,87 @@
+{
+  "interactionModel": {
+    "languageModel": {
+      "invocationName": "knight hacks stock ticker",
+      "intents": [
+        {
+          "name": "AMAZON.CancelIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.HelpIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.StopIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.NavigateHomeIntent",
+          "samples": []
+        },
+        {
+          "name": "StockPriceIntent",
+          "slots": [
+            {
+              "name": "company",
+              "type": "AMAZON.Corporation",
+              "samples": [
+                "{company}  price",
+                "The price of {company}",
+                "I want {company}",
+                "{company}"
+              ]
+            }
+          ],
+          "samples": [
+            "what is {company} at",
+            "what\u0027s {company} price",
+            "what\u0027s the price of {company}",
+            "what is {company}  stock trading at",
+            "what is {company}  stock price",
+            "what is the stock price of {company}",
+            "what is {company} trading at"
+          ]
+        }
+      ],
+      "types": []
+    },
+    "dialog": {
+      "intents": [
+        {
+          "name": "StockPriceIntent",
+          "confirmationRequired": false,
+          "prompts": {},
+          "slots": [
+            {
+              "name": "company",
+              "type": "AMAZON.Corporation",
+              "elicitationRequired": true,
+              "confirmationRequired": false,
+              "prompts": {
+                "elicitation": "Elicit.Slot.61481345712.255423540955"
+              }
+            }
+          ]
+        }
+      ],
+      "delegationStrategy": "ALWAYS"
+    },
+    "prompts": [
+      {
+        "id": "Elicit.Slot.61481345712.255423540955",
+        "variations": [
+          {
+            "type": "PlainText",
+            "value": "What company is that?"
+          },
+          {
+            "type": "PlainText",
+            "value": "What company do you want the price of?"
+          }
+        ]
+      }
+    ]
+  },
+  "version": "4"
+}
